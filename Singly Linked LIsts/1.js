@@ -78,6 +78,15 @@ class SinglyLinkedList {
     return current;
   }
 
+  set(index, val) {
+      var foundNode = get(index);
+      if(foundNode) {
+          foundNode.val = val;
+          return true;
+      }
+      return false;
+  }
+
   // A naive example
   // traverse() {
   //     var current = this.head;
