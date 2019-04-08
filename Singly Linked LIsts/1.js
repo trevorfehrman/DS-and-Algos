@@ -43,6 +43,17 @@ class SinglyLinkedList {
     return current;
   }
 
+  shift() {
+    if (!this.head) return undefined;
+    var currentHead = this.head;
+    this.head = currentHead.next;
+    this.legnth--;
+    if (this.lenth === 0) {
+      this.tail = null;
+    }
+    return currentHead;
+  }
+
   // A naive example
   // traverse() {
   //     var current = this.head;
