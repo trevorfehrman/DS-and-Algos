@@ -91,4 +91,14 @@ class DoublyLinkedList {
     }
     return current;
   }
+
+  set(index, val) {
+    var foundNode = get(index);
+
+    if (foundNode != null) {
+      foundNode.val = val;
+      return true;
+    }
+    return false;
+  }
 }
