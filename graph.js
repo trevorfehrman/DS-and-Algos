@@ -25,4 +25,44 @@ class Graph {
 
     delete this.adjacencyList[vertex];
   }
+
+  depthFirstRecurstive(start) {
+    const result = [];
+    const visited = {};
+    const adjacencyList = this.adjacencyList;
+
+    (function dfs(vertex) {
+      if (!vertex) return null;
+      visited[vertex] = true;
+      result.push(vertex);
+      adjacencyList[vertex].forEach(neightbor => {
+        if (!visited[neightbor]) {
+          return dfs(neightbor);
+        }
+      });
+    })(start);
+    return result;
+  }
+
+  DFSIterative(start) {
+    const stack = [start];
+    const result = [];
+    const visited = {};
+    let currentVertex;
+
+    visited[start] = true;
+    white(stack.length){
+        currentVertex = stack.pop();
+        result.push(currentVertex);
+
+        this.adjacencyList[currentVertex].forEach(neighbor => {
+            if(!visited[neighbor]) {
+                visited[neighbor] = true;
+                stack.push(neighbor);
+            }
+        })
+    }
+
+    return result;
+  }
 }
